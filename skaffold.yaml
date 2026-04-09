@@ -1,0 +1,14 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+manifests:
+  rawYaml:
+  - k8s/dev/deployment.yaml
+profiles:
+- name: dev
+  manifests:
+    rawYaml:
+    - k8s/dev/deployment.yaml
+- name: prod
+  manifests:
+    rawYaml:
+    - k8s/prod/deployment.yaml

@@ -1,0 +1,28 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: my-pipeline
+description: CI/CD Pipeline dev to prod
+serialPipeline:
+  stages:
+  - targetId: dev
+    profiles: []
+  - targetId: prod
+    profiles: []
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: dev
+description: Dev GKE Cluster
+gke:
+  cluster: projects/fabled-ruler-485423-u5/locations/us-central1/clusters/dev-cluster
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+description: Prod GKE Cluster
+requireApproval: true
+gke:
+  cluster: projects/fabled-ruler-485423-u5/locations/us-central1/clusters/prod-cluster
