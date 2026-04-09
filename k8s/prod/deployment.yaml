@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: us-central1-docker.pkg.dev/fabled-ruler-485423-u5/my-repo/my-app:v1
+        image: my-app
         env:
         - name: ENV
           value: "prod"
